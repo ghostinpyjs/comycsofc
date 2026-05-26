@@ -6,7 +6,5 @@ export default async function handler(req, res) {
     const r = await fetch(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=${API_KEY}&steamids=${steamid}`);
     const d = await r.json();
     return res.status(200).json(d);
-  } catch {
-    return res.status(500).json({ error: 'Failed to fetch player' });
-  }
+  } catch { return res.status(500).json({ error: 'Failed' }); }
 }

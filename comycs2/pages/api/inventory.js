@@ -13,8 +13,7 @@ export default async function handler(req, res) {
     const items = data.assets.map(asset => {
       const desc = data.descriptions?.find(d => d.classid === asset.classid && d.instanceid === asset.instanceid);
       return {
-        assetid: asset.assetid,
-        classid: asset.classid,
+        assetid: asset.assetid, classid: asset.classid,
         name: desc?.name || 'Unknown',
         market_name: desc?.market_name || desc?.name || 'Unknown',
         market_hash_name: desc?.market_hash_name || '',
@@ -24,16 +23,10 @@ export default async function handler(req, res) {
         exterior: desc?.tags?.find(t => t.category === 'Exterior')?.localized_tag_name || '',
         weapon_type: desc?.tags?.find(t => t.category === 'Weapon')?.localized_tag_name || '',
         icon_url: desc?.icon_url ? `https://community.cloudflare.steamstatic.com/economy/image/${desc.icon_url}/256fx256f` : null,
-        tradable: desc?.tradable === 1,
-        marketable: desc?.marketable === 1,
+        tradable: desc?.tradable === 1, marketable: desc?.marketable === 1,
       };
     });
-    items.sort((a, b) => {
-      const ai = rarityOrder.indexOf(a.rarity), bi = rarityOrder.indexOf(b.rarity);
-      return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
-    });
+    items.sort((a, b) => { const ai = rarityOrder.indexOf(a.rarity), bi = rarityOrder.indexOf(b.rarity); return (ai===-1?99:ai)-(bi===-1?99:bi); });
     return res.status(200).json({ items, total: items.length });
-  } catch {
-    return res.status(500).json({ error: 'Erro interno' });
-  }
+  } catch { return res.status(500).json({ error: 'Erro interno' }); }
 }

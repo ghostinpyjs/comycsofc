@@ -430,3 +430,87 @@ body {
   .inv-grid{grid-template-columns:repeat(auto-fill,minmax(148px,1fr));}
   .stat-wide{grid-column:span 1;}
 }
+
+/* ── Steam Login Button ── */
+.steam-login-btn {
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  padding:12px 24px; background:#1b2838; color:#c7d5e0;
+  border:none; border-radius:var(--radius-sm); font-family:var(--font);
+  font-size:15px; font-weight:600; cursor:pointer; text-decoration:none;
+  transition:background .2s, transform .1s, box-shadow .2s;
+  width:100%;
+}
+.steam-login-btn:hover { background:#2a475e; transform:translateY(-1px); box-shadow:0 6px 20px rgba(0,0,0,.4); }
+
+.steam-btn { display:flex; align-items:center; justify-content:center; gap:10px; padding:12px 24px; background:#1b2838; color:#c7d5e0; border:none; border-radius:var(--radius-sm); font-family:var(--font); font-size:15px; font-weight:600; cursor:pointer; text-decoration:none; transition:background .2s, transform .1s; width:100%; }
+.steam-btn:hover { background:#2a475e; transform:translateY(-1px); }
+.steam-btn-sm { display:inline-flex; align-items:center; gap:8px; padding:7px 14px; background:#1b2838; color:#c7d5e0; border:none; border-radius:var(--radius-sm); font-family:var(--font); font-size:13px; font-weight:600; cursor:pointer; text-decoration:none; transition:background .2s; white-space:nowrap; }
+.steam-btn-sm:hover { background:#2a475e; }
+
+/* ── Login page (tela cheia) ── */
+.login-page {
+  min-height:100vh; display:flex; align-items:center; justify-content:center;
+  padding:20px; position:relative; overflow:hidden;
+}
+.login-bg-glow {
+  position:absolute; top:-200px; left:50%; transform:translateX(-50%);
+  width:800px; height:600px;
+  background:radial-gradient(ellipse, rgba(245,166,35,.06) 0%, transparent 70%);
+  pointer-events:none;
+}
+.login-bg-grid {
+  position:absolute; inset:0;
+  background-image:linear-gradient(rgba(31,37,51,.3) 1px,transparent 1px), linear-gradient(90deg,rgba(31,37,51,.3) 1px,transparent 1px);
+  background-size:48px 48px; pointer-events:none;
+}
+.login-card {
+  position:relative; background:var(--bg3); border:1px solid var(--border2);
+  border-radius:16px; padding:48px 44px; width:100%; max-width:440px;
+  animation:fadeUp .5s ease both;
+  box-shadow:0 32px 80px rgba(0,0,0,.6);
+}
+.login-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--accent),transparent); border-radius:16px 16px 0 0; }
+.login-logo { display:flex; align-items:center; gap:12px; margin-bottom:32px; }
+.login-logo-mark { width:44px; height:44px; border-radius:10px; background:var(--accent); display:flex; align-items:center; justify-content:center; }
+.login-logo-mark svg { width:24px; height:24px; }
+.login-logo-text { font-family:var(--font-display); font-size:26px; font-weight:800; color:var(--text); }
+.login-logo-text span { color:var(--accent); }
+.login-title { font-family:var(--font-display); font-size:22px; font-weight:800; color:var(--text); margin-bottom:8px; }
+.login-sub { font-size:14px; color:var(--text2); margin-bottom:32px; line-height:1.6; }
+.login-features { display:flex; flex-direction:column; gap:10px; margin-bottom:32px; padding:18px; background:var(--bg4); border-radius:var(--radius-sm); border:1px solid var(--border); }
+.login-feature { display:flex; align-items:center; gap:10px; font-size:14px; color:var(--text2); }
+.login-feature-icon { font-size:18px; flex-shrink:0; }
+.login-divider { display:flex; align-items:center; gap:10px; margin:20px 0; }
+.login-divider-line { flex:1; height:1px; background:var(--border); }
+.login-divider-txt { font-size:12px; color:var(--text3); white-space:nowrap; }
+.login-footer { margin-top:24px; font-size:12px; color:var(--text3); text-align:center; line-height:1.6; }
+
+/* ── Header user ── */
+.hdr-user { display:flex; align-items:center; gap:8px; padding:4px 10px; background:var(--bg3); border:1px solid var(--border2); border-radius:var(--radius-sm); flex-shrink:0; cursor:pointer; }
+.hdr-avatar { width:26px; height:26px; border-radius:4px; object-fit:cover; }
+.hdr-username { font-size:13px; font-weight:600; color:var(--text); max-width:100px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.hdr-badge { font-size:10px; background:rgba(61,214,140,.1); color:var(--green); border:1px solid rgba(61,214,140,.2); border-radius:20px; padding:1px 6px; }
+.hdr-steam-btn { display:inline-flex; align-items:center; gap:7px; padding:6px 14px; background:#1b2838; color:#c7d5e0; border:none; border-radius:var(--radius-sm); font-family:var(--font); font-size:13px; font-weight:600; cursor:pointer; text-decoration:none; transition:background .2s; white-space:nowrap; flex-shrink:0; }
+.hdr-steam-btn:hover { background:#2a475e; }
+
+/* ── Profile status inline ── */
+.profile-status { display:inline-flex; align-items:center; gap:5px; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:600; }
+.s-online { background:rgba(61,214,140,.1); color:var(--green); border:1px solid rgba(61,214,140,.2); }
+.s-offline { background:rgba(136,150,176,.08); color:var(--text2); border:1px solid var(--border); }
+.s-ingame { background:rgba(77,166,245,.1); color:var(--blue); border:1px solid rgba(77,166,245,.2); }
+
+/* ── Profile extra ── */
+.profile-game { font-size:13px; color:var(--blue); margin-top:6px; }
+.profile-link { display:inline-flex; align-items:center; gap:5px; color:var(--text3); text-decoration:none; font-size:13px; margin-top:8px; transition:color .2s; }
+.profile-link:hover { color:var(--accent); }
+.profile-hrs-num { font-family:var(--font-display); font-size:38px; font-weight:800; color:var(--accent); line-height:1; }
+.profile-hrs-lbl { font-size:11px; color:var(--text3); letter-spacing:1.5px; text-transform:uppercase; margin-top:4px; font-family:var(--font-mono); }
+.profile-year { font-size:12px; color:var(--text3); margin-top:6px; font-family:var(--font-mono); }
+
+/* ── Compare page ── */
+.compare-input { flex:1; background:none; border:none; outline:none; color:var(--accent); font-family:var(--font); font-size:14px; font-weight:600; }
+.compare-input-2 { color:var(--blue); }
+
+/* ── Footer ── */
+.footer { border-top:1px solid var(--border); padding:20px; text-align:center; font-size:12px; color:var(--text3); font-family:var(--font-mono); margin-top:60px; letter-spacing:.5px; }
+.footer b { color:var(--accent); }
